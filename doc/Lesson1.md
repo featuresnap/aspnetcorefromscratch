@@ -1,6 +1,6 @@
 # ASP.Net Core From Scratch
 
-## Lesson 1: Getting Familiar with `dotnet new`
+## Lesson 1: Creating Solutions with `dotnet new`
 
 This lesson covers the use of the `dotnet new` command to create new solutions.
 
