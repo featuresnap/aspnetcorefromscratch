@@ -2,7 +2,7 @@
 
 ## Lesson 1: Getting Familiar with `dotnet new`
 
-This lesson covers the use of the `dotnet new` command to create solutions and projects.
+This lesson covers the use of the `dotnet new` command to create new solutions.
 
 ### Start With a Working Directory
 
@@ -37,7 +37,7 @@ To see all the options for `dotnet new`, as well as all the available templates 
     aspnetcorefromscratch.sln
     ```
 
-1. Creating a solution with a custom name
+1. Creating a solution with a custom name:
 
     The `--name` option allows specifying a custom name for the solution file.
 
