@@ -2,72 +2,67 @@
 
 ## Lesson 1: Getting Familiar with `dotnet new`
 
-### A Working Directory
+This lesson covers the use of the `dotnet new` command to create solutions and projects.
 
-First, go ahead and create an empty directory and navigate into it:
+### Start With a Working Directory
+
+For the examples in this section, create an empty directory and navigate into it:
 
 ```bash
-mkdir dotnetcorefromscratch && cd dotnetcorefromscratch
+mkdir aspnetcorefromscratch && cd aspnetcorefromscratch
 ```
 
 ### What can `dotnet new` create ?
 
-Now let's ask `dotnet` what it can do for us by typing `dotnet new --help`
+The `dotnet new` command is used to create new items including solutions, projects, and other files, based on templates that are either prepackaged with the .Net Core SDK, or installed as [custom templates](https://docs.microsoft.com/en-us/dotnet/core/tools/custom-templates).
 
-```bash
-$ dotnet new --help
-Usage: new [options]
+To see all the options for `dotnet new`, as well as all the available templates currently installed, execute `dotnet new --help`.
 
-Options:
-  -h, --help          Displays help for this command.
-  -l, --list          Lists templates containing the specified name. If no name is specified, lists all templates.
-  -n, --name          The name for the output being created. If no name is specified, the name of the current directory is used.
-  -o, --output        Location to place the generated output.
-  -i, --install       Installs a source or a template pack.
-  -u, --uninstall     Uninstalls a source or a template pack.
-  --type              Filters templates based on available types. Predefined values are "project", "item" or "other".
-  --force             Forces content to be generated even if it would change existing files.
-  -lang, --language   Specifies the language of the template to create.
+### Exercises
 
-Templates                                         Short Name       Language          Tags
---------------------------------------------------------------------------------------------------------
-Console Application                               console          [C#], F#, VB      Common/Console
-Class library                                     classlib         [C#], F#, VB      Common/Library
-Unit Test Project                                 mstest           [C#], F#, VB      Test/MSTest
-xUnit Test Project                                xunit            [C#], F#, VB      Test/xUnit
-ASP.NET Core Empty                                web              [C#], F#          Web/Empty
-ASP.NET Core Web App (Model-View-Controller)      mvc              [C#], F#          Web/MVC
-ASP.NET Core Web App                              razor            [C#]              Web/MVC/Razor Pages
-ASP.NET Core with Angular                         angular          [C#]              Web/MVC/SPA
-ASP.NET Core with React.js                        react            [C#]              Web/MVC/SPA
-ASP.NET Core with React.js and Redux              reactredux       [C#]              Web/MVC/SPA
-ASP.NET Core Web API                              webapi           [C#], F#          Web/WebAPI
-global.json file                                  globaljson                         Config
-Nuget Config                                      nugetconfig                        Config
-Web Config                                        webconfig                          Config
-Solution File                                     sln                                Solution
-Razor Page                                        page                               Web/ASP.NET
-MVC ViewImports                                   viewimports                        Web/ASP.NET
-MVC ViewStart                                     viewstart                          Web/ASP.NET
+1. Creating a new solution with default name:
 
+    The `dotnet new sln` command creates a new solution file.
 
-Examples:
-    dotnet new mvc --auth Individual
-    dotnet new xunit
-    dotnet new --help
-```
+    Try this:
+    ```bash
+    $ dotnet new sln
+    The template "Solution File" was created successfully.
+    ```
 
-### Creating a new solution
+    What does `dotnet new sln` choose for the name of the solution file?
 
-Create a new solution file in the current directory named **MySolution.sln**. 
+    ```bash
+    $ ls
+    aspnetcorefromscratch.sln
+    ```
 
-```bash
-$ dotnet new sln --name MySolution
-The template "Solution File" was created successfully.
+1. Creating a solution with a custom name
 
-$ ls
-MySolution.sln
-```
+    The `--name` option allows specifying a custom name for the solution file.
 
-To reveal options for setting the solution's name and other parameters, execute
-`dotnet new sln --help`.
+    Try this:
+
+    ```bash
+    $ dotnet new sln --name MySolution
+    The template "Solution File" was created successfully.
+    ```
+
+    If you did not remove any files since creating the first solution, you should now have two solution files in the directory.
+
+    ```bash
+    $ ls
+    aspnetcorefromscratch.sln  MySolution.sln
+    ```
+
+1. Creating a solution with a custom name and file extension:
+
+    What happens if you specify the .sln extension when creating a solution file with a custom name?
+
+    Try this:
+    ```bash
+    $ dotnet new sln --name MyOtherSolution.sln
+    The template "Solution File" was created successfully.
+
+    $ ls
+    aspnetcorefromscratch.sln  MyOtherSolution.sln.sln  MySolution.sln
